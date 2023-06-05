@@ -3,7 +3,7 @@
  * check_cycle - Main function to check the list
  * @list: Parameter value
  *
- * REturn: 0 or 1
+ * Return: 0 or 1
  */
 int check_cycle(listint_t *list)
 {
