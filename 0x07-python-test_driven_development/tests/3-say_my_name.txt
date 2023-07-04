@@ -1,0 +1,2 @@
+python3 -c 'print(__import__("3-say_my_name").__doc__)'
+python3 -c 'print(__import__("3-say_my_name").say_my_name.__doc__)'
