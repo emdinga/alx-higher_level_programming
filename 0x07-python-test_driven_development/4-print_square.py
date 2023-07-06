@@ -1,26 +1,38 @@
 #!/usr/bin/python3
 
-def print_square(size):
+def text_indentation(text):
     """
-    Prints a square with the character #.
+    Prints a text with 2 new lines after each '.', '?', and ':'
 
     Args:
-        size (int): The size length of the square.
+        text (str): The input text
+
+    Returns:
+        None
 
     Raises:
-        TypeError: If size is not an integer.
-        ValueError: If size is less than 0.
-        TypeError: If size is a float and is less than 0.
+        TypeError: If text is not a string
 
     """
-    if not isinstance(size, int):
-        raise TypeError("size must be an integer")
 
-    if size < 0:
-        raise ValueError("size must be >= 0")
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
 
-    if isinstance(size, float) and size < 0:
-        raise TypeError("size must be an integer")
+    text = text.strip()  # Remove leading and trailing whitespaces
 
-    for _ in range(size):
-        print("#" * size)
+    punctuation_marks = ['.', '?', ':']
+
+    # Iterate over the text character by character
+    for char in text:
+        print(char, end='')  # Print the character
+
+        # Check if the character is a punctuation mark
+        if char in punctuation_marks:
+            print('\n\n', end='')  # Print 2 new lines
+
+
+# Run the doctest
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+
