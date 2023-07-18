@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+""" define base class """
+
 import json
 import csv
 
@@ -8,7 +11,8 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Initialize a new Base instance.
+        """
+        Initialize a new Base instance.
 
         Args:
             id (int): The identifier for the instance. Defaults to None.
@@ -21,7 +25,8 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Convert a list of dictionaries to a JSON string.
+        """
+        Convert a list of dictionaries to a JSON string.
 
         Args:
             list_dictionaries (list): A list of dictionaries.
@@ -35,7 +40,8 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """Convert a JSON string to a list of dictionaries.
+        """
+        Convert a JSON string to a list of dictionaries.
 
         Args:
             json_string (str): A JSON string.
@@ -49,7 +55,8 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Save a list of instances to a file in JSON format.
+        """
+        Save a list of instances to a file in JSON format.
 
         Args:
             list_objs (list): A list of instances to be saved.
@@ -63,7 +70,8 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Load a list of instances from a file in JSON format.
+        """
+        Load a list of instances from a file in JSON format.
 
         Returns:
             list: The list of instances loaded from the file.
@@ -79,7 +87,8 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Create a new instance with the given attributes.
+        """
+        Create a new instance with the given attributes.
 
         Returns:
             Base: A new instance with the given attributes.
@@ -95,7 +104,8 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Save a list of instances to a CSV file.
+        """
+        Save a list of instances to a CSV file.
 
         Args:
             list_objs (list): A list of instances to be saved.
@@ -112,7 +122,8 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """Load a list of instances from a CSV file.
+        """
+        Load a list of instances from a CSV file.
 
         Returns:
             list: The list of instances loaded from the file.
@@ -129,41 +140,4 @@ class Base:
                     instance = cls(row[1], row[2], row[3], row[0])
                 instances.append(instance)
         return instances
-
-
-if __name__ == "__main__":
-    r1 = Rectangle(10, 7, 2, 8)
-    r2 = Rectangle(2, 4)
-    list_rectangles_input = [r1, r2]
-
-    Rectangle.save_to_file(list_rectangles_input)
-
-    list_rectangles_output = Rectangle.load_from_file()
-
-    for rect in list_rectangles_input:
-        print("[{}] {}".format(id(rect), rect))
-
-    print("---")
-
-    for rect in list_rectangles_output:
-        print("[{}] {}".format(id(rect), rect))
-
-    print("---")
-    print("---")
-
-    s1 = Square(5)
-    s2 = Square(7, 9, 1)
-    list_squares_input = [s1, s2]
-
-    Square.save_to_file(list_squares_input)
-
-    list_squares_output = Square.load_from_file()
-
-    for square in list_squares_input:
-        print("[{}] {}".format(id(square), square))
-
-    print("---")
-
-    for square in list_squares_output:
-        print("[{}] {}".format(id(square), square))
 
