@@ -1,4 +1,10 @@
 #!/usr/bin/node
-let myValue = 12;
-myValue = 89;
-console.log(`The updated value is ${myValue}`);
+const myObject = {
+  type: 'object',
+  value: 12
+};
+console.log(myObject);
+
+myObject.value = 89;
+
+console.log(myObject);
