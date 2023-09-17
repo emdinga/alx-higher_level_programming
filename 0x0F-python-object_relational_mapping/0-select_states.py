@@ -4,6 +4,7 @@ This script lists all states from the database hbtn_0e_0_usa.
 """
 
 if __name__ == "__main__":
+
     import sys
     import MySQLdb
 
@@ -24,7 +25,7 @@ if __name__ == "__main__":
     
     cursor = db.cursor()
 
-    cursor.execute("SELECT * FROM states ORDER BY states.id ASC,")
+    cursor.execute("SELECT * FROM states ORDER BY states.id ASC;")
 
     results = cursor.fetchall()
     
