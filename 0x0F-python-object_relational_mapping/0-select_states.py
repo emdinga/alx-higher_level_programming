@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     states = cursor.fetchall()
     for state in states:
-        print(state)
+        print("({}, '{}')".format(state[0], state[1]))
 
     cursor.close()
     db.close()
