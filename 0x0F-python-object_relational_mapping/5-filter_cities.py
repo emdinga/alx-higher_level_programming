@@ -24,8 +24,9 @@ if __name__ == "__main__":
                    "JOIN states ON cities.state_id = states.id "
                    "WHERE states.name = %s "
                    "ORDER BY cities.id ASC", (state_name,))
-    results = cursor.fetchall()
-    for row in results:
-        print(row)
+    cities = cursor.fetchall()
+    city_names = [city[0] for city in cities]
+    cities_str = ', '.join(city_names)
+    print(cities_str)
     cursor.close()
     db.close()
